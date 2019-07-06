@@ -1,0 +1,16 @@
+--2019-07-06 13:58:54--  https://raw.githubsercontent.com/svenfuchs/rails-i18n/master/rails/locale/ja.yml
+raw.githubsercontent.com (raw.githubsercontent.com) をDNSに問いあわせています... 103.224.212.222
+raw.githubsercontent.com (raw.githubsercontent.com)|103.224.212.222|:443 に接続しています... 接続しました。
+HTTP による接続要求を送信しました、応答を待っています... 302 Found
+場所: http://ww17.raw.githubsercontent.com/svenfuchs/rails-i18n/master/rails/locale/ja.yml [続く]
+--2019-07-06 13:58:56--  http://ww17.raw.githubsercontent.com/svenfuchs/rails-i18n/master/rails/locale/ja.yml
+ww17.raw.githubsercontent.com (ww17.raw.githubsercontent.com) をDNSに問いあわせています... 199.191.50.92
+ww17.raw.githubsercontent.com (ww17.raw.githubsercontent.com)|199.191.50.92|:80 に接続しています... 接続しました。
+HTTP による接続要求を送信しました、応答を待っています... 200 OK
+長さ: 272 [text/html]
+`ja.yml' に保存中
+
+     0K                                                       100% 21.6M=0s
+
+2019-07-06 13:58:57 (21.6 MB/s) - `ja.yml' へ保存完了 [272/272]
+
