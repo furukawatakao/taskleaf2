@@ -1,6 +1,6 @@
 h1 ユーザー一覧
 
-= link_to '新規登録' new_admin_user_path, class: 'btn btn-primary'
+.nav.justify-content-end
+= link_to '一覧' admin_user_path, class: 'nav-link'
 
-.mb-3
-table.table.table-hover
+= render partial: 'form', locals: (user: @user)

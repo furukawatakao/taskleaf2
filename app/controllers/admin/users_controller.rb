@@ -5,7 +5,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
-
+    @user = User.find(params[:id])
   end
 
   def new
@@ -14,6 +14,12 @@ class Admin::UsersController < ApplicationController
 
   def edit
     @user = User.find[:params[:id]]
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admin_users_url, notice: "ユーザー「#{@user.name}」を削除しました。"
   end
 
   def create
@@ -32,6 +38,6 @@ class Admin::UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:name, :email, :admin, :password　:password_confirmation)
+    params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
   end
 end
