@@ -4,6 +4,11 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   def index
     @q = current_user.tasks.ransack(params[:q])
     @tasks = @q.result(distinct: true)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @tasks.generate_csv, filename: "tasks-#{Time.zone.now.strftime('%Y%m%d%S')}.csv"}
+    end
   end
 
   def show
@@ -54,11 +59,16 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   private
 
     def task_params
-      params.require(:task).permit(:name, :description)
+      params.require(:task).permit(:name, :description, :image)
     end
 
     def set_task
       @task = current_user.tasks.find(params[:id])
     end
 
+    def import
+      current_user.tasks.import(params[:file])
+      redirect_to tasks_url, notice: "タスクを追加しました"
+    end
+    
 end
