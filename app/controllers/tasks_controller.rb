@@ -3,7 +3,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
     @q = current_user.tasks.ransack(params[:q])
-    @tasks = @q.result(distinct: true)
+    @tasks = @q.result(distinct: true).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html
@@ -45,6 +45,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
 
     if @task.save
       TaskMailer.creation_email(@task).deliver_now
+      SampleJob.perform_later
       redirect_to @task, notice:"タスク「#{@task.name}」を登録しました。"
     else
       render :new
@@ -70,5 +71,5 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
       current_user.tasks.import(params[:file])
       redirect_to tasks_url, notice: "タスクを追加しました"
     end
-    
+
 end
