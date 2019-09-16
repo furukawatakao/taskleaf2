@@ -1,6 +1,6 @@
 ja:
   views:
-    pagenation:
+    pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"
       previous: "&lsaquo; 前"

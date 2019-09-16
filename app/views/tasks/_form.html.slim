@@ -13,4 +13,7 @@
   .form-group
     = f.label :image
     = f.file_field :image, class: 'form-control'
+  .form-group
+    = f.label :limit_date
+    = f.date_field :limit_date, class: 'form-control', id: 'task_limit_date'
   = f.submit nil, class: 'btn btn-primary'

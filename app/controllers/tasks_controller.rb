@@ -60,7 +60,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   private
 
     def task_params
-      params.require(:task).permit(:name, :description, :image)
+      params.require(:task).permit(:name, :description, :image, :limit_date)
     end
 
     def set_task
